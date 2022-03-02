@@ -58,9 +58,10 @@ class ViewController: UIViewController {
     
     private func composeSectionData() {
         items.append("Standard")
-        items.append("Large Title")
         items.append("Standard with Custom Color")
         items.append("Standard with Custom Navigation Item")
+        items.append("Large Title")
+        items.append("Large Title with Custom Color")
     }
     
     private func setupNavigationBar() {
@@ -72,11 +73,6 @@ class ViewController: UIViewController {
 
         navigationController?.navigationBar.standardAppearance = navigationAppearance
         navigationController?.navigationBar.scrollEdgeAppearance = navigationAppearance
-    }
-    
-    @objc func didTapButton() {
-        let vc = SecondViewController()
-        navigationController?.pushViewController(vc, animated: true)
     }
 }
 
@@ -100,11 +96,13 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         if indexPath.row == 0 {
             vc = StandardViewController()
         } else if indexPath.row == 1 {
-            vc = LargeTitleViewController()
-        } else if indexPath.row == 2 {
             vc = StandardWithCustomColorViewController()
-        } else if indexPath.row == 3 {
+        } else if indexPath.row == 2 {
             vc = StandardWithCustomBarItem()
+        } else if indexPath.row == 3 {
+            vc = LargeTitleViewController()
+        } else if indexPath.row == 4 {
+            vc = LargeTitleWithCustomColorViewController()
         }
         
         self.navigationController?.pushViewController(vc, animated: true)

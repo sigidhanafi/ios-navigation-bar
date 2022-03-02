@@ -10,12 +10,12 @@
 		D8AC3FA827CED9BA00F50528 /* StandardWithCustomColorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8AC3FA727CED9BA00F50528 /* StandardWithCustomColorViewController.swift */; };
 		D8AC3FAA27CEDC6400F50528 /* StandardWithCustimBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8AC3FA927CEDC6400F50528 /* StandardWithCustimBarItem.swift */; };
 		D8AC3FAC27CEE2B000F50528 /* ContentScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8AC3FAB27CEE2B000F50528 /* ContentScrollView.swift */; };
+		D8AC3FAF27D02C8800F50528 /* LargeTitleWithCustomColorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8AC3FAE27D02C8800F50528 /* LargeTitleWithCustomColorViewController.swift */; };
 		D8BA091227C52E58002F839A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8BA091127C52E58002F839A /* AppDelegate.swift */; };
 		D8BA091427C52E58002F839A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8BA091327C52E58002F839A /* SceneDelegate.swift */; };
 		D8BA091627C52E58002F839A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8BA091527C52E58002F839A /* ViewController.swift */; };
 		D8BA091B27C52E5A002F839A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D8BA091A27C52E5A002F839A /* Assets.xcassets */; };
 		D8BA091E27C52E5A002F839A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8BA091C27C52E5A002F839A /* LaunchScreen.storyboard */; };
-		D8BA092627C688D7002F839A /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8BA092527C688D7002F839A /* SecondViewController.swift */; };
 		D8F5BA1C27C7ED6D0016540E /* StandardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F5BA1B27C7ED6D0016540E /* StandardViewController.swift */; };
 		D8F5BA1E27C7EE2E0016540E /* LargeTitleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F5BA1D27C7EE2E0016540E /* LargeTitleViewController.swift */; };
 /* End PBXBuildFile section */
@@ -24,6 +24,7 @@
 		D8AC3FA727CED9BA00F50528 /* StandardWithCustomColorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardWithCustomColorViewController.swift; sourceTree = "<group>"; };
 		D8AC3FA927CEDC6400F50528 /* StandardWithCustimBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardWithCustimBarItem.swift; sourceTree = "<group>"; };
 		D8AC3FAB27CEE2B000F50528 /* ContentScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentScrollView.swift; sourceTree = "<group>"; };
+		D8AC3FAE27D02C8800F50528 /* LargeTitleWithCustomColorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargeTitleWithCustomColorViewController.swift; sourceTree = "<group>"; };
 		D8BA090E27C52E58002F839A /* NavigationBarCustom.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NavigationBarCustom.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8BA091127C52E58002F839A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D8BA091327C52E58002F839A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -31,7 +32,6 @@
 		D8BA091A27C52E5A002F839A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D8BA091D27C52E5A002F839A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D8BA091F27C52E5A002F839A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D8BA092527C688D7002F839A /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		D8F5BA1B27C7ED6D0016540E /* StandardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardViewController.swift; sourceTree = "<group>"; };
 		D8F5BA1D27C7EE2E0016540E /* LargeTitleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargeTitleViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -82,7 +82,7 @@
 				D8AC3FA727CED9BA00F50528 /* StandardWithCustomColorViewController.swift */,
 				D8AC3FA927CEDC6400F50528 /* StandardWithCustimBarItem.swift */,
 				D8F5BA1D27C7EE2E0016540E /* LargeTitleViewController.swift */,
-				D8BA092527C688D7002F839A /* SecondViewController.swift */,
+				D8AC3FAE27D02C8800F50528 /* LargeTitleWithCustomColorViewController.swift */,
 				D8BA091A27C52E5A002F839A /* Assets.xcassets */,
 				D8BA091C27C52E5A002F839A /* LaunchScreen.storyboard */,
 				D8BA091F27C52E5A002F839A /* Info.plist */,
@@ -162,8 +162,8 @@
 			files = (
 				D8AC3FAA27CEDC6400F50528 /* StandardWithCustimBarItem.swift in Sources */,
 				D8F5BA1E27C7EE2E0016540E /* LargeTitleViewController.swift in Sources */,
+				D8AC3FAF27D02C8800F50528 /* LargeTitleWithCustomColorViewController.swift in Sources */,
 				D8F5BA1C27C7ED6D0016540E /* StandardViewController.swift in Sources */,
-				D8BA092627C688D7002F839A /* SecondViewController.swift in Sources */,
 				D8BA091627C52E58002F839A /* ViewController.swift in Sources */,
 				D8AC3FA827CED9BA00F50528 /* StandardWithCustomColorViewController.swift in Sources */,
 				D8BA091227C52E58002F839A /* AppDelegate.swift in Sources */,
