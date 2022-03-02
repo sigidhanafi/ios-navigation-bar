@@ -9,73 +9,105 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
+//    override var preferredStatusBarStyle: UIStatusBarStyle {
+//        return .lightContent
+//    }
+    
+    private var items: [String] = [] {
+        didSet {
+            self.tableView.reloadData()
+        }
     }
+    
+    private let tableView: UITableView = {
+        let view = UITableView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = .white
+        return view
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
         
-        title = "Bar Items"
-        view.backgroundColor = .blue
+        title = "Navigation Bars"
+        view.backgroundColor = .white
         
-        let button = UIButton(frame: CGRect(x: 0, y: 0, width: 200, height: 50))
-        view.addSubview(button)
-        button.center = view.center
-        button.backgroundColor = .systemBlue
-        button.setTitle("Go To View 2", for: .normal)
-        button.addTarget(self, action: #selector(didTapButton), for: .touchUpInside)
+        setupTableView()
         
-        configureItems()
+        composeSectionData()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
         setupNavigationBar()
     }
     
-    private func configureItems() {
-//        right items
-//        navigation item, with single item
-//        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: nil)
+    private func setupTableView() {
+        view.addSubview(tableView)
+        tableView.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor).isActive = true
+        tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
+        tableView.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor).isActive = true
+        tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
         
-//        navigation item, with multiple items
-        navigationItem.rightBarButtonItems = [
-            UIBarButtonItem(barButtonSystemItem: .add, target: self, action: nil),
-            UIBarButtonItem(image: UIImage(systemName: "person.circle"), style: .done, target: self, action: nil)
-        ]
+        tableView.delegate = self
+        tableView.dataSource = self
         
-//        left item
-//        navigaition item left
-        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "gear"), style: .done, target: self, action: nil)
-        
-//        navigation item with custom view
-//        let customView = UILabel(frame: CGRect(x: 0, y: 0, width: 200, height: 40))
-//        customView.text = "Hello"
-//        customView.textAlignment = .center
-//        customView.backgroundColor = .orange
-//        customView.layer.cornerRadius = 8
-//        customView.layer.masksToBounds = true
-//        navigationItem.leftBarButtonItem = UIBarButtonItem(customView: customView)
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+    }
+    
+    private func composeSectionData() {
+        items.append("Standard")
+        items.append("Large Title")
+        items.append("Standard with Custom Color")
+        items.append("Standard with Custom Navigation Item")
     }
     
     private func setupNavigationBar() {
         let navigationAppearance = UINavigationBarAppearance()
-        navigationAppearance.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
-        navigationAppearance.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
-        navigationAppearance.backgroundColor = .systemCyan
         
         navigationController?.navigationBar.prefersLargeTitles = false
-        navigationController?.navigationBar.isTranslucent = false
-        navigationController?.navigationBar.tintColor = .white
-        
+        navigationController?.navigationBar.isTranslucent = true
+        navigationController?.navigationBar.tintColor = .label
+
         navigationController?.navigationBar.standardAppearance = navigationAppearance
         navigationController?.navigationBar.scrollEdgeAppearance = navigationAppearance
-        
     }
     
     @objc func didTapButton() {
         let vc = SecondViewController()
         navigationController?.pushViewController(vc, animated: true)
     }
+}
 
+extension ViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return items.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = UITableViewCell(style: .default, reuseIdentifier: "cell")
+        cell.textLabel?.text = items[indexPath.row]
+        cell.selectionStyle = .none
+        cell.backgroundColor = .white
+        cell.textLabel?.textColor = .black
+        
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        var vc = UIViewController()
+        if indexPath.row == 0 {
+            vc = StandardViewController()
+        } else if indexPath.row == 1 {
+            vc = LargeTitleViewController()
+        } else if indexPath.row == 2 {
+            vc = StandardWithCustomColorViewController()
+        } else if indexPath.row == 3 {
+            vc = StandardWithCustomBarItem()
+        }
+        
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
 }
 
